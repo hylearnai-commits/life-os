@@ -29,7 +29,7 @@ export default function Weather() {
         const curr = data.current_condition[0]
         const desc = curr.weatherDesc[0].value
         setWeather({
-          temp: Math.round((parseInt(curr.temp_C) * 9) / 5 + 32),
+          temp: Math.round(parseInt(curr.temp_C)),
           condition: desc,
           icon: ICON_MAP[desc] ?? '🌡️',
           humidity: parseInt(curr.humidity),
@@ -39,7 +39,7 @@ export default function Weather() {
         setLoading(false)
       })
       .catch(() => {
-        setWeather({ temp: 72, condition: 'Unknown', icon: '🌡️', humidity: 50, wind: 10, location: '上海' })
+        setWeather({ temp: 22, condition: 'Unknown', icon: '🌡️', humidity: 50, wind: 10, location: '上海' })
         setLoading(false)
       })
   }, [])
